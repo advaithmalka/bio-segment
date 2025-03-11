@@ -1,100 +1,185 @@
 import Image from "next/image";
-
+import Head from 'next/head';
+import { ArrowRight, Layers, Maximize, Zap, BarChart, Code } from 'lucide-react';
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.js
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+    <div className="min-h-screen bg-gray-900 text-white">
+      <Head>
+        <title>BioSegment | Advanced Biological Image Segmentation</title>
+        <meta name="description" content="Powerful AI models for segmenting and analyzing biological images" />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
+      <header className="container mx-auto px-4 py-6">
+        <nav className="flex justify-between items-center">
+          <div className="flex items-center">
+            <span className="text-2xl font-bold text-emerald-400">BioSegment</span>
+          </div>
+          <div className="hidden md:flex space-x-8">
+            <a href="#features" className="hover:text-emerald-400 transition">Features</a>
+            <a href="#models" className="hover:text-emerald-400 transition">Models</a>
+            <a href="#docs" className="hover:text-emerald-400 transition">Documentation</a>
+            <a href="#about" className="hover:text-emerald-400 transition">About</a>
+          </div>
+          <div>
+            <button className="bg-emerald-500 hover:bg-emerald-600 py-2 px-4 rounded-lg transition">
+              Get Started
+            </button>
+          </div>
+        </nav>
+      </header>
+
+      <main>
+        {/* Hero Section */}
+        <section className="py-20 md:py-32">
+          <div className="container mx-auto px-4 text-center">
+            <h1 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-emerald-400 to-blue-500 bg-clip-text text-transparent">
+              Analyze Biological Images with Precision
+            </h1>
+            <p className="text-xl md:text-2xl text-gray-300 mb-10 max-w-3xl mx-auto">
+              Advanced AI models that segment, count, and measure biological structures with unparalleled accuracy
+            </p>
+            <div className="flex flex-col md:flex-row justify-center gap-4">
+              <button className="bg-emerald-500 hover:bg-emerald-600 py-3 px-8 rounded-lg text-lg font-medium flex items-center justify-center transition">
+                Try Demo <ArrowRight className="ml-2 h-5 w-5" />
+              </button>
+              <button className="bg-gray-800 hover:bg-gray-700 py-3 px-8 rounded-lg text-lg font-medium flex items-center justify-center border border-gray-700 transition">
+                View Documentation
+              </button>
+            </div>
+          </div>
+        </section>
+
+        {/* Features Section */}
+        <section id="features" className="py-20 bg-gray-800">
+          <div className="container mx-auto px-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-center mb-16">
+              <span className="bg-gradient-to-r from-emerald-400 to-blue-500 bg-clip-text text-transparent">
+                Powerful Features
+              </span>
+            </h2>
+            
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {/* Feature 1 */}
+              <div className="bg-gray-900 p-6 rounded-xl">
+                <div className="bg-emerald-500/20 p-3 rounded-lg w-fit mb-4">
+                  <Layers className="h-6 w-6 text-emerald-400" />
+                </div>
+                <h3 className="text-xl font-semibold mb-3">Mitochondria Counting</h3>
+                <p className="text-gray-300">
+                  Automatically identify and count mitochondria in electron microscopy images with over 95% accuracy.
+                </p>
+              </div>
+              
+              {/* Feature 2 */}
+              <div className="bg-gray-900 p-6 rounded-xl">
+                <div className="bg-blue-500/20 p-3 rounded-lg w-fit mb-4">
+                  <Maximize className="h-6 w-6 text-blue-400" />
+                </div>
+                <h3 className="text-xl font-semibold mb-3">Protein Length Measurement</h3>
+                <p className="text-gray-300">
+                  Precisely measure protein filament lengths in fluorescence microscopy images with nanometer precision.
+                </p>
+              </div>
+              
+              {/* Feature 3 */}
+              <div className="bg-gray-900 p-6 rounded-xl">
+                <div className="bg-purple-500/20 p-3 rounded-lg w-fit mb-4">
+                  <Zap className="h-6 w-6 text-purple-400" />
+                </div>
+                <h3 className="text-xl font-semibold mb-3">Cell Membrane Segmentation</h3>
+                <p className="text-gray-300">
+                  Accurately detect and segment cell membranes in confocal microscopy images for morphological analysis.
+                </p>
+              </div>
+              
+              {/* Feature 4 */}
+              <div className="bg-gray-900 p-6 rounded-xl">
+                <div className="bg-pink-500/20 p-3 rounded-lg w-fit mb-4">
+                  <BarChart className="h-6 w-6 text-pink-400" />
+                </div>
+                <h3 className="text-xl font-semibold mb-3">Quantitative Analysis</h3>
+                <p className="text-gray-300">
+                  Generate comprehensive statistics and visualizations of biological structures for research and publications.
+                </p>
+              </div>
+              
+              {/* Feature 5 */}
+              <div className="bg-gray-900 p-6 rounded-xl">
+                <div className="bg-yellow-500/20 p-3 rounded-lg w-fit mb-4">
+                  <Code className="h-6 w-6 text-yellow-400" />
+                </div>
+                <h3 className="text-xl font-semibold mb-3">API Integration</h3>
+                <p className="text-gray-300">
+                  Seamlessly integrate our models into your existing workflow with our well-documented REST API.
+                </p>
+              </div>
+              
+              {/* Feature 6 */}
+              <div className="bg-gray-900 p-6 rounded-xl">
+                <div className="bg-red-500/20 p-3 rounded-lg w-fit mb-4">
+                  <Zap className="h-6 w-6 text-red-400" />
+                </div>
+                <h3 className="text-xl font-semibold mb-3">Batch Processing</h3>
+                <p className="text-gray-300">
+                  Process thousands of images in parallel with our high-performance computing infrastructure.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Call to Action */}
+        <section className="py-20 bg-gradient-to-b from-gray-900 to-gray-800">
+          <div className="container mx-auto px-4 text-center">
+            <h2 className="text-3xl md:text-4xl font-bold mb-8">
+              Ready to transform your biological image analysis?
+            </h2>
+            <button className="bg-emerald-500 hover:bg-emerald-600 py-3 px-8 rounded-lg text-lg font-medium transition">
+              Get Started Today
+            </button>
+          </div>
+        </section>
       </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
+
+      <footer className="bg-gray-900 py-12 border-t border-gray-800">
+        <div className="container mx-auto px-4">
+          <div className="grid md:grid-cols-4 gap-8">
+            <div>
+              <h3 className="text-xl font-bold text-emerald-400 mb-4">BioSegment</h3>
+              <p className="text-gray-400">
+                Advanced AI solutions for biological image analysis.
+              </p>
+            </div>
+            <div>
+              <h4 className="font-semibold mb-4">Product</h4>
+              <ul className="space-y-2 text-gray-400">
+                <li><a href="#" className="hover:text-emerald-400 transition">Features</a></li>
+                <li><a href="#" className="hover:text-emerald-400 transition">Models</a></li>
+                <li><a href="#" className="hover:text-emerald-400 transition">Pricing</a></li>
+              </ul>
+            </div>
+            <div>
+              <h4 className="font-semibold mb-4">Resources</h4>
+              <ul className="space-y-2 text-gray-400">
+                <li><a href="#" className="hover:text-emerald-400 transition">Documentation</a></li>
+                <li><a href="#" className="hover:text-emerald-400 transition">API Reference</a></li>
+                <li><a href="#" className="hover:text-emerald-400 transition">Examples</a></li>
+              </ul>
+            </div>
+            <div>
+              <h4 className="font-semibold mb-4">Company</h4>
+              <ul className="space-y-2 text-gray-400">
+                <li><a href="#" className="hover:text-emerald-400 transition">About</a></li>
+                <li><a href="#" className="hover:text-emerald-400 transition">Blog</a></li>
+                <li><a href="#" className="hover:text-emerald-400 transition">Contact</a></li>
+              </ul>
+            </div>
+          </div>
+          <div className="mt-12 pt-8 border-t border-gray-800 text-center text-gray-500">
+            <p>© 2025 BioSegment. All rights reserved.</p>
+          </div>
+        </div>
       </footer>
     </div>
   );
