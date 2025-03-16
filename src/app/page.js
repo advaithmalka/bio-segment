@@ -1,7 +1,14 @@
-import Image from "next/image";
+"use client";
+
+
 import Head from 'next/head';
-import { ArrowRight, Layers, Maximize, Zap, BarChart, Code } from 'lucide-react';
+import Link from 'next/link'
+import { ArrowRight, Layers, Maximize, Zap, BarChart, Code, Upload, Box, RefreshCw } from 'lucide-react';
+
+
 export default function Home() {
+
+
   return (
     <div className="min-h-screen bg-gray-900 text-white">
       <Head>
@@ -10,24 +17,6 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <header className="container mx-auto px-4 py-6">
-        <nav className="flex justify-between items-center">
-          <div className="flex items-center">
-            <span className="text-2xl font-bold text-emerald-400">BioSegment</span>
-          </div>
-          <div className="hidden md:flex space-x-8">
-            <a href="#features" className="hover:text-emerald-400 transition">Features</a>
-            <a href="#models" className="hover:text-emerald-400 transition">Models</a>
-            <a href="#docs" className="hover:text-emerald-400 transition">Documentation</a>
-            <a href="#about" className="hover:text-emerald-400 transition">About</a>
-          </div>
-          <div>
-            <button className="bg-emerald-500 hover:bg-emerald-600 py-2 px-4 rounded-lg transition">
-              Get Started
-            </button>
-          </div>
-        </nav>
-      </header>
 
       <main>
         {/* Hero Section */}
@@ -40,9 +29,11 @@ export default function Home() {
               Advanced AI models that segment, count, and measure biological structures with unparalleled accuracy
             </p>
             <div className="flex flex-col md:flex-row justify-center gap-4">
+              <Link href="/mito_segment">
               <button className="bg-emerald-500 hover:bg-emerald-600 py-3 px-8 rounded-lg text-lg font-medium flex items-center justify-center transition">
                 Try Demo <ArrowRight className="ml-2 h-5 w-5" />
               </button>
+              </Link>
               <button className="bg-gray-800 hover:bg-gray-700 py-3 px-8 rounded-lg text-lg font-medium flex items-center justify-center border border-gray-700 transition">
                 View Documentation
               </button>
@@ -142,45 +133,7 @@ export default function Home() {
         </section>
       </main>
 
-      <footer className="bg-gray-900 py-12 border-t border-gray-800">
-        <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-4 gap-8">
-            <div>
-              <h3 className="text-xl font-bold text-emerald-400 mb-4">BioSegment</h3>
-              <p className="text-gray-400">
-                Advanced AI solutions for biological image analysis.
-              </p>
-            </div>
-            <div>
-              <h4 className="font-semibold mb-4">Product</h4>
-              <ul className="space-y-2 text-gray-400">
-                <li><a href="#" className="hover:text-emerald-400 transition">Features</a></li>
-                <li><a href="#" className="hover:text-emerald-400 transition">Models</a></li>
-                <li><a href="#" className="hover:text-emerald-400 transition">Pricing</a></li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="font-semibold mb-4">Resources</h4>
-              <ul className="space-y-2 text-gray-400">
-                <li><a href="#" className="hover:text-emerald-400 transition">Documentation</a></li>
-                <li><a href="#" className="hover:text-emerald-400 transition">API Reference</a></li>
-                <li><a href="#" className="hover:text-emerald-400 transition">Examples</a></li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="font-semibold mb-4">Company</h4>
-              <ul className="space-y-2 text-gray-400">
-                <li><a href="#" className="hover:text-emerald-400 transition">About</a></li>
-                <li><a href="#" className="hover:text-emerald-400 transition">Blog</a></li>
-                <li><a href="#" className="hover:text-emerald-400 transition">Contact</a></li>
-              </ul>
-            </div>
-          </div>
-          <div className="mt-12 pt-8 border-t border-gray-800 text-center text-gray-500">
-            <p>© 2025 BioSegment. All rights reserved.</p>
-          </div>
-        </div>
-      </footer>
+    
     </div>
   );
 }
