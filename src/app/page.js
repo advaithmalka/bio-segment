@@ -29,7 +29,7 @@ export default function Home() {
               Advanced AI models that segment, count, and measure biological structures with unparalleled accuracy
             </p>
             <div className="flex flex-col md:flex-row justify-center gap-4">
-              <Link href="/mito_segment">
+              <Link href="/analysis">
               <button className="bg-emerald-500 hover:bg-emerald-600 py-3 px-8 rounded-lg text-lg font-medium flex items-center justify-center transition">
                 Try Demo <ArrowRight className="ml-2 h-5 w-5" />
               </button>
