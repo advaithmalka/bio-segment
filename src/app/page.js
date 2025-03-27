@@ -8,6 +8,9 @@ import { ArrowRight, Layers, Maximize, Zap, BarChart, Code, Upload, Box, Refresh
 
 export default function Home() {
 
+  fetch("https://advaithmalka-mito-detect-api.hf.space/")
+    .then(response => console.log("Server wake-up request sent"))
+    .catch(error => console.error("Error waking up server:", error));
 
   return (
     <div className="min-h-screen bg-gray-900 text-white">

@@ -4,12 +4,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { ArrowRight, Layers, Maximize, Zap, BarChart, Code, Upload, Box, RefreshCw , ArrowDown} from 'lucide-react';
 import UTIF from 'utif';
 import axios from 'axios';
-
-// import images
-
-// import sampleImage1 from '../../images/6800x-120kv-0010.png';
-// import sampleImage2 from '../../images/6800x-120kv-0011.png';
-// import sampleImage3 from '../../images/6800x-120kv-0028.png';
+import Image from 'next/image'
 
 export default function Home() {
     const [file, setFile] = useState(null);
@@ -18,9 +13,14 @@ export default function Home() {
     const [loading, setLoading] = useState(false);
     const [imageError, setImageError] = useState(null);
     const fileInputRef = useRef(null);
+    // const SERVER_URL = "http://127.0.0.1:5000/predict" // dev
+    const SERVER_URL = "https://advaithmalka-mito-detect-api.hf.space/predict" // prod
+
     const [sampleImages] = useState([
-        "/images/6800x-120kv-0010.png",  "/images/6800x-120kv-0011.png", "/images/6800x-120kv-0028.png"
-    ]);
+       "/images/6800x-120kv-0010.png",  
+       "/images/6800x-120kv-0011.png", 
+       "/images/6800x-120kv-0028.png"
+  ]);
 
     const handleSampleImageSelect = async (sampleImage) => {
         try {
@@ -146,7 +146,7 @@ export default function Home() {
         setLoading(true);
         
         try {
-            const response = await axios.post('http://127.0.0.1:5000/predict', formData, {
+            const response = await axios.post(SERVER_URL, formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data'  // Important for file uploads
                 }
@@ -250,9 +250,9 @@ export default function Home() {
                         className="cursor-pointer hover:opacity-80 transition"
                         onClick={() => handleSampleImageSelect(image)}
                         >
-                        <img 
+                        <Image 
                             src={image} 
-                           
+                            width={300} height={300}
                             className="object-cover rounded-lg border-2 border-transparent hover:border-emerald-500"
                         />
                         </div>

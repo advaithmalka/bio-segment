@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "baseUrl": ".",
+    "baseUrl": "/bio_segment",
     "paths": {
       "@/*": ["./src/*"],
       "@images/*": ["src/images/*"]
