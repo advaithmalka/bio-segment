@@ -253,6 +253,7 @@ export default function Home() {
                         >
                         <Image 
                             src={image} 
+                            alt='EM Mitochondira Image'
                             width={300} height={300}
                             className="object-cover rounded-lg border-2 border-transparent hover:border-emerald-500"
                         />
