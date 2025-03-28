@@ -7,6 +7,7 @@ import axios from 'axios';
 import Image from 'next/image'
 
 export default function Home() {
+    const BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH || '';
     const [file, setFile] = useState(null);
     const [previewUrl, setPreviewUrl] = useState(null);
     const [result, setResult] = useState(null);
@@ -17,9 +18,9 @@ export default function Home() {
     const SERVER_URL = "https://advaithmalka-mito-detect-api.hf.space/predict" // prod
 
     const [sampleImages] = useState([
-       "/images/6800x-120kv-0010.png",  
-       "/images/6800x-120kv-0011.png", 
-       "/images/6800x-120kv-0028.png"
+       `${BASE_PATH}/images/6800x-120kv-0010.png`,  
+       `${BASE_PATH}/images/6800x-120kv-0011.png`, 
+       `${BASE_PATH}/images/6800x-120kv-0028.png`, 
   ]);
 
     const handleSampleImageSelect = async (sampleImage) => {

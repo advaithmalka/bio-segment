@@ -19,8 +19,7 @@ export default function Home() {
         <meta name="description" content="Powerful AI models for segmenting and analyzing biological images" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
-
+      
       <main>
         {/* Hero Section */}
         <section className="py-20 md:py-32">
