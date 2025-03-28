@@ -10,6 +10,7 @@ const Navbar = () => {
       </div>
       <div className="hidden md:flex space-x-8">
         <Link href="/mito-detect" className="text-gray-300 hover:text-emerald-400 transition">Mito-Detect</Link>
+        <Link href="/analysis" className="text-gray-300 hover:text-emerald-400 transition">SAM Mito Analysis</Link>
         <Link href="/cristae-detect" className="text-gray-300 hover:text-emerald-400 transition">Cristae-Detect</Link>
       </div>
       <div>
