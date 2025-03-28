@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "baseUrl": "https://advaithmalka.github.io/bio_segment",
+    "baseUrl": "https://advaithmalka.github.io/bio-segment",
     "paths": {
       "@/*": ["./src/*"],
       "@images/*": ["src/images/*"]

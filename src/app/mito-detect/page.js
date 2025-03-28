@@ -5,13 +5,12 @@ import { ArrowRight, Layers, Maximize, Zap, BarChart, Code, Upload, Box, Refresh
 import UTIF from 'utif';
 import axios from 'axios';
 import Image from 'next/image'
-import sample1 from '../../images/6800x-120kv-0010.png'
-import sample2 from '../../images/6800x-120kv-0011.png'
-import sample3 from '../../images/6800x-120kv-0028.png'
+import sample1 from '../../images/6800x-120kv-0011.png'
+import sample2 from '../../images/6800x-120kv-0028.png'
+import sample3 from '../../images/6800x-120kv-0010.png'
 
 
 export default function Home() {
-    const BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH || '';
     const [file, setFile] = useState(null);
     const [previewUrl, setPreviewUrl] = useState(null);
     const [result, setResult] = useState(null);

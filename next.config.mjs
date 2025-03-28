@@ -2,8 +2,8 @@
 
 const isGithubPages = process.env.GITHUB_PAGES === 'true';
 const nextConfig = {
-  basePath: isGithubPages ? '/bio_segment/' : '',
-  assetPrefix: isGithubPages ? '/bio_segment/' : '',
+  basePath: isGithubPages ? '/bio-segment/' : '',
+  assetPrefix: isGithubPages ? '/bio-segment/' : '',
   output: 'export', // Required for static GitHub Pages deployment
   images: {
     unoptimized: true // Required for static exports

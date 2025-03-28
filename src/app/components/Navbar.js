@@ -9,7 +9,7 @@ const Navbar = () => {
         <Link href="/" className="text-2xl font-bold text-emerald-400">BioSegment</Link>
       </div>
       <div className="hidden md:flex space-x-8">
-        <Link href="/mito_detect" className="text-gray-300 hover:text-emerald-400 transition">Mito-Detect</Link>
+        <Link href="/mito-detect" className="text-gray-300 hover:text-emerald-400 transition">Mito-Detect</Link>
         <a href="#models" className="text-gray-300 hover:text-emerald-400 transition">Models</a>
         <a href="#docs" className="text-gray-300 hover:text-emerald-400 transition">Documentation</a>
         <a href="#about" className="text-gray-300 hover:text-emerald-400 transition">About</a>
