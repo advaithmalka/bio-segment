@@ -5,6 +5,10 @@ import { ArrowRight, Layers, Maximize, Zap, BarChart, Code, Upload, Box, Refresh
 import UTIF from 'utif';
 import axios from 'axios';
 import Image from 'next/image'
+import sample1 from '../../images/6800x-120kv-0010.png'
+import sample2 from '../../images/6800x-120kv-0011.png'
+import sample3 from '../../images/6800x-120kv-0028.png'
+
 
 export default function Home() {
     const BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH || '';
@@ -18,26 +22,26 @@ export default function Home() {
     const SERVER_URL = "https://advaithmalka-mito-detect-api.hf.space/predict" // prod
 
     const [sampleImages] = useState([
-       `${BASE_PATH}/images/6800x-120kv-0010.png`,  
-       `${BASE_PATH}/images/6800x-120kv-0011.png`, 
-       `${BASE_PATH}/images/6800x-120kv-0028.png`, 
+      sample1,
+      sample2,
+      sample3
   ]);
 
     const handleSampleImageSelect = async (sampleImage) => {
         try {
-          // Fetch the sample image as a File object
-          const response = await fetch(sampleImage);
+          // Convert the imported image to a File object
+          const fileName = sampleImage.src.split('/').pop() || 'sample_image.png';
+          const response = await fetch(sampleImage.src);
           const blob = await response.blob();
-          const file = new File([blob], `sample_image.png`, { type: 'image/png' });
-        
-          // Update state as if a file was uploaded
+          const file = new File([blob], fileName, { type: blob.type });
+          
+          // Update state
           setFile(file);
           setResult(null);
           setImageError(null);
-        
-          // Create object URL for preview
-          const objectUrl = URL.createObjectURL(file);
-          setPreviewUrl(objectUrl);
+          
+          // Create preview URL
+          setPreviewUrl(sampleImage.src);
         } catch (error) {
           console.error('Error selecting sample image:', error);
           setImageError('Error processing sample image');
