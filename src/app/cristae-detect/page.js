@@ -2,6 +2,7 @@
 
 import React, { useState, useRef } from 'react';
 import { ArrowRight,  Zap, BarChart, Upload, Box, RefreshCw , ArrowDown} from 'lucide-react';
+import ServerStatusIndicator from '../components/ServerStatusIndicator';
 import UTIF from 'utif';
 import axios from 'axios';
 import Image from 'next/image'
@@ -17,8 +18,8 @@ export default function Home() {
     const [loading, setLoading] = useState(false);
     const [imageError, setImageError] = useState(null);
     const fileInputRef = useRef(null);
-    // const SERVER_URL = "http://127.0.0.1:5000/predict" // dev
-    const SERVER_URL = "https://advaithmalka-cristae-detect-api.hf.space/predict" // prod
+    // const SERVER_URL = "http://127.0.0.1:5000/" // dev
+    const SERVER_URL = "https://advaithmalka-cristae-detect-api.hf.space/" // prod
 
     const [sampleImages] = useState([
       sample1,
@@ -150,7 +151,7 @@ export default function Home() {
         setLoading(true);
         
         try {
-            const response = await axios.post(SERVER_URL, formData, {
+            const response = await axios.post(SERVER_URL + "predict", formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data'  // Important for file uploads
                 }
@@ -202,12 +203,15 @@ export default function Home() {
           
           <div className="max-w-4xl mx-auto bg-gray-900 rounded-xl p-6 shadow-lg">
             <div className="mb-8">
-              <h3 className="text-xl font-semibold mb-4 flex items-center">
+            <h3 className="text-xl font-semibold mb-4 flex items-center justify-between">
+              <div className="flex items-center">
                 <span className="bg-emerald-500/20 p-2 rounded-lg mr-3">
                   <Upload className="h-5 w-5 text-emerald-400" />
                 </span>
                 Upload your image
-              </h3>
+              </div>
+              <ServerStatusIndicator serverUrl={SERVER_URL} />
+            </h3>
               
               <div 
                 className="flex flex-col items-center justify-center border-2 border-dashed border-gray-700 rounded-lg p-8 cursor-pointer hover:bg-gray-800 transition"
