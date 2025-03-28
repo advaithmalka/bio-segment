@@ -1,13 +1,13 @@
 "use client";
 
-import React, { useState, useRef, useEffect } from 'react';
-import { ArrowRight, Layers, Maximize, Zap, BarChart, Code, Upload, Box, RefreshCw , ArrowDown} from 'lucide-react';
+import React, { useState, useRef } from 'react';
+import { ArrowRight,  Zap, BarChart, Upload, Box, RefreshCw , ArrowDown} from 'lucide-react';
 import UTIF from 'utif';
 import axios from 'axios';
 import Image from 'next/image'
-import sample1 from '../../images/6800x-120kv-0011.png'
-import sample2 from '../../images/6800x-120kv-0028.png'
-import sample3 from '../../images/6800x-120kv-0010.png'
+import sample1 from '../../images/00102.png'
+import sample2 from '../../images/00128.png'
+import sample3 from '../../images/00129.png'
 
 
 export default function Home() {
@@ -18,7 +18,7 @@ export default function Home() {
     const [imageError, setImageError] = useState(null);
     const fileInputRef = useRef(null);
     // const SERVER_URL = "http://127.0.0.1:5000/predict" // dev
-    const SERVER_URL = "https://advaithmalka-mito-detect-api.hf.space/predict" // prod
+    const SERVER_URL = "https://advaithmalka-cristae-detect-api.hf.space/predict" // prod
 
     const [sampleImages] = useState([
       sample1,
@@ -188,7 +188,7 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-gray-900 text-white">
-      <title>BioSegment | Advanced Biological Image Segmentation</title>
+      <title>Cristae Detection</title>
       <meta name="description" content="Powerful AI models for segmenting and analyzing biological images" />
       <link rel="icon" href="/favicon.ico" />
 
@@ -196,7 +196,7 @@ export default function Home() {
         <div className="container mx-auto px-4">
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
             <span className="bg-gradient-to-r from-emerald-400 to-blue-500 bg-clip-text text-transparent">
-              Segment Mitochondria with AI
+              Segment Cristae with AI
             </span>
           </h2>
           
@@ -225,6 +225,7 @@ export default function Home() {
                     <Upload className="h-12 w-12 text-gray-400 mb-4" />
                     <p className="text-gray-300 text-center">Drag and drop your EM image here or click to browse</p>
                     <p className="text-gray-500 text-sm mt-2">Supported formats: PNG, JPG, TIFF</p>
+                    <p className="text-gray-500 text-sm mt-2">For best performance upload an image with one mitochondria</p>
                   </>
                 ) : (
                   <div className="text-center">

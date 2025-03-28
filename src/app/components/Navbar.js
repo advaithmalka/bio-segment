@@ -10,9 +10,7 @@ const Navbar = () => {
       </div>
       <div className="hidden md:flex space-x-8">
         <Link href="/mito-detect" className="text-gray-300 hover:text-emerald-400 transition">Mito-Detect</Link>
-        <a href="#models" className="text-gray-300 hover:text-emerald-400 transition">Models</a>
-        <a href="#docs" className="text-gray-300 hover:text-emerald-400 transition">Documentation</a>
-        <a href="#about" className="text-gray-300 hover:text-emerald-400 transition">About</a>
+        <Link href="/cristae-detect" className="text-gray-300 hover:text-emerald-400 transition">Cristae-Detect</Link>
       </div>
       <div>
         <button className="bg-emerald-500 hover:bg-emerald-600 text-white py-2 px-4 rounded-lg transition">
